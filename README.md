@@ -25,11 +25,11 @@ Hotkey-triggered voice dictation for macOS. Press a key, speak, release — text
 brew install sox
 
 # Build from source
-git clone https://github.com/jiyeollee/voice-dictate.git
+git clone https://github.com/jiyeol-lee/voice-dictate.git
 CGO_ENABLED=1 go build -o voice-dictate .
 
 # Or install directly
-CGO_ENABLED=1 go install github.com/jiyeollee/voice-dictate@latest
+CGO_ENABLED=1 go install github.com/jiyeol-lee/voice-dictate@latest
 ```
 
 ## Usage
