@@ -218,6 +218,7 @@ func handleDictationCycle(
 	language string,
 ) {
 	fmt.Println("Recording...")
+	showNotification("Recording...")
 
 	// Start recording and wait for release
 	audioPath, err := recordUntilRelease()
@@ -225,6 +226,7 @@ func handleDictationCycle(
 		fmt.Fprintf(os.Stderr, "Error: Failed to record audio: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Make sure microphone permissions are granted.\n")
 		fmt.Fprintf(os.Stderr, "Go to: System Settings > Privacy & Security > Microphone\n")
+		showNotification("Recording failed")
 		return
 	}
 	defer os.Remove(audioPath) // Clean up temp file
@@ -235,6 +237,7 @@ func handleDictationCycle(
 	text, err := transcribe(recognizer, audioPath, language, verbose)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Error: Transcription failed: %v\n", err)
+		showNotification("Transcription failed")
 		return
 	}
 
@@ -254,6 +257,7 @@ func handleDictationCycle(
 	fmt.Println("Typing...")
 	if err := typeText(text); err != nil {
 		fmt.Fprintf(os.Stderr, "Error: Failed to type text: %v\n", err)
+		showNotification("Typing failed")
 		return
 	}
 
