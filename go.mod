@@ -1,4 +1,4 @@
-module github.com/jiyeollee/voice-dictate
+module github.com/jiyeol-lee/voice-dictate
 
 go 1.26
 
