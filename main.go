@@ -10,7 +10,7 @@ import (
 	"syscall"
 )
 
-const version = "0.1.3"
+const version = "0.1.5"
 
 func main() {
 	// Parse flags
